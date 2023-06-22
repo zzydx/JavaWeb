@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form th:action="/index.do" method="post">
+        <input type="hidden" name="action" value="login">
+        <table>
+            <tr>
+                <th>账号</th>
+                <th><input type="text" placeholder="请输入账号" name="username" id="username"></th>
+            </tr>
+            <tr>
+                <th>密码</th>
+                <th><input type="password" placeholder="" name="password" id="password"></th>
+            </tr>
+            <tr>
+                <th><input type="submit" value="登陆" id="log_btn"></th>
+            </tr>
+            <!--        <tr>-->
+            <!--            <td th:text="${session.username}"></td>-->
+            <!--            <td th:text="${session.password}"></td>-->
+            <!--        </tr>-->
+        </table>
+    </form>
+    <!--    <div>-->
+    <!--        <a th:href="@{/edit.do(id=11,name='zzy')}">edit</a>-->
+    <!--        &lt;!&ndash;   th:href="@{'/edit.do?id=' + ${bean.id}}" &ndash;&gt;-->
+    <!--        &lt;!&ndash;    @{/edit.do(id=${id},name='zzy')}&ndash;&gt;-->
+    <!--    </div>-->
+    <!--    <div>-->
+    <!--        <input type="button" value="首页" th:onclick="|page(1)|" th:disabled="${session.pageNo == 1}"/>-->
+    <!--        <input type="button" value="上一页" th:onclick="|page(${session.pageNo - 1})|"-->
+    <!--               th:disabled="${session.pageNo == 1}"/>-->
+    <!--        <input type="button" value="下一页" th:onclick="|page(${session.pageNo + 1})|"-->
+    <!--               th:disabled="${session.pageNo == session.pageCount}"/>-->
+    <!--        <input type="button" value="尾页" th:onclick="|page(${session.pageCount})|"-->
+    <!--               th:disabled="${session.pageNo == session.pageCount}"/>-->
+
+    <!--    </div>-->
+    <!--    <script type="application/javascript">-->
+    <!--        function page(pageNo) {-->
+    <!--            window.location.href="index?pageNo=" + pageNo;-->
+    <!--        }-->
+    <!--    </script>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--context-param是上下文参数，属于整个web工程  只能servletcontext获取-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>applicationContext.xml</param-value>
+    </context-param>
+
+
+    <servlet>
+        <!--name标签给servlet程序起一个对应类的名字-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--class标签是servlet程序的全类名-->
+        <servlet-class>servlet.HelloServlet1</servlet-class>
+    </servlet>
+    <!--    给servlet配置访问地址-->
+    <servlet-mapping>
+        <!--name标签告诉服务器，当前配置的地址给哪个servlet使用-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--给servlet配置访问地址
+        /代表localhost；8080/工程
+        hello代表在地址栏访问的是工程/hello-->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <!--name标签给servlet程序起一个对应类的名字-->
+        <servlet-name>Hello2</servlet-name>
+        <!--class标签是servlet程序的全类名-->
+        <servlet-class>servlet.InitServlet</servlet-class>
+        <!--只能是servletconfig获取-->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>aaa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>bbbb</param-value>
+        </init-param>
+    </servlet>
+    <!--给servlet配置访问地址-->
+    <servlet-mapping>
+        <!--name标签告诉服务器，当前配置的地址给哪个servlet使用-->
+        <servlet-name>Hello2</servlet-name>
+        <!--给servlet配置访问地址
+        /代表localhost；8080/工程
+        hello代表在地址栏访问的是工程/hello-->
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>hello3</servlet-name>
+        <servlet-class>servlet.HelloServlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>httpservletrequest</servlet-name>
+        <servlet-class>servlet.HttpServletRequestTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>httpservletrequest</servlet-name>
+        <url-pattern>/httpservletrequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>formhttpservletrequest</servlet-name>
+        <servlet-class>servlet.FormHttpServletRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>formhttpservletrequest</servlet-name>
+        <url-pattern>/formhttpservletrequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>servlet.Servlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>servlet.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Response1</servlet-name>
+        <servlet-class>servlet.Response1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response1</servlet-name>
+        <url-pattern>/response1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Response2</servlet-name>
+        <servlet-class>servlet.Response2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Response2</servlet-name>
+        <url-pattern>/response2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FileServlet</servlet-name>
+        <servlet-class>servlet.UploadFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileServlet</servlet-name>
+        <url-pattern>/fileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DownFileServlet</servlet-name>
+        <servlet-class>servlet.DownFileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownFileServlet</servlet-name>
+        <url-pattern>/downFileServlet</url-pattern>
+    </servlet-mapping>
+    <!--配置监听器;配置监听器的全类名-->
+    <listener>
+        <listener-class>listener.MyServletContextListenerImpl</listener-class>
+    </listener>
+
+    
+    <!--    过滤器-->
+    <filter>
+        <filter-name>filterServlet</filter-name>
+        <filter-class>filter.Filter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterServlet</filter-name>
+        <url-pattern>/filterServlet.do</url-pattern>
+    </filter-mapping>
+    <!-- 配置thymeleaf的视图前缀和视图后缀  servlet初始化时使用-->
+    <context-param>
+        <param-name>view-prefix</param-name>
+        <param-value>/WEB_INF/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>view-suffix</param-name>
+        <param-value>.html</param-value>
+    </context-param>
+
+</web-app>

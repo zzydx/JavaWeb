@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" src="script/vue.js"></script>
+    <script language="JavaScript">
+        window.onload = function () {
+            var vue = new Vue({
+                el: "#div0",
+                // data数据
+                data: {
+                    msg: "helloworld",
+                    uname: "helloworld",
+                    num: "0"
+                },
+                //     方法
+                methods: {
+                    //字符串反转
+                    a: function () {
+                        this.msg = this.msg.split("").reverse().join("");
+                    }
+                },
+                //监听
+                watch: {
+                    //当某个对象发生改变，执行对应的方法
+                    num: function () {
+                        this.uname = "www"
+                    }
+                },
+
+                //vue生命周期
+                beforeCreate: function () {
+                    //new Vue实例创建之前
+                },
+                created: function () {
+                    //new Vue实例创建完成
+                },
+                beforeMount: function () {
+                    //new Vue数据加载前
+                },
+                mounted: function () {
+                    //数据已加载后
+                },
+                beforeUpdate: function () {
+                    //new Vue数据更新前
+                },
+                updated: function () {
+                    //new Vue数据更新后
+                },
+            });
+        }
+
+    </script>
+</head>
+<body>
+</body>
+<div id="div0">
+    <!--   {{}} = innerText-->
+    <span>{{msg}}</span><br/>
+    <!--    v-bind表示绑定value属性 单向绑定  = :value-->
+    <input type="text" v-bind:value="uname"/><br/>
+
+    <!--   v-model表示双向绑定，动态绑定 修改值输入框和数据源都会被修改  v-model:value 的value可以省略-->
+    <!--    <input type="text" v-model:value="msg"/>-->
+    <!--    trim去除首尾的空格-->
+    <input type="text" v-model.trim="msg"/><br/>
+    <input type="text" v-model.trim="num"/>
+
+    <!--    if和else之间不能有其他标签，通过去除节点来控制是否显示-->
+    <div v-if="num%2==0">偶数</div>
+    <div v-else="num%2== 0">基数</div>
+
+    <!--    show通过display属性来控制div是否显示-->
+    <div v-show="num%2==0">0</div>
+    <!--    v-for来迭代集合-->
+
+    <!--    v-on:click 绑定点击事件 = @click -->
+    <input type="button" value="反转" v-on:click="a"/>
+</div>
+</html>

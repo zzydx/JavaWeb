@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <!--    <bean id="thymeleafServlet" class="servlet.ThymeleafServlet">-->
+    <!--  bean与bean之间的依赖关系
+    property表示属性
+    name表示ThymeleafServlet这个类引用Index类的的对象名 = private Index index;
+    ref表示引用其他bean的id值-->
+    <!--        <property name="index" ref="index"></property>-->
+    <!--    </bean>-->
+    <bean id="page" class="servlet.PageController"></bean>
+    <bean id="index" class="servlet.Index"></bean>
+    <!--    <bean id="index" class="servlet.Index"/>-->
+    <!-- id 和全类名对应  ServletPath中涉及到对应的id的值，就由id对应的类来处理  给id发请求就是给类发请求-->
+</beans>
+
+
+        <!--
+        xml包含三部分
+        xml声明
+        xml正文
+        dtd文档类型定义
+        -->
